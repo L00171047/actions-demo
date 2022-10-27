@@ -30,6 +30,7 @@ jobs:
     - name: Build with Maven
       run: mvn compile
   Test:
+    needs: Compile
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -42,6 +43,7 @@ jobs:
     - name: Test with Maven
       run: mvn test
   Package:
+    needs: Test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

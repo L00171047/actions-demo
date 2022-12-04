@@ -21,6 +21,6 @@ public class AppTest
     @Test
     public void checkAdditionTest2()
     {
-        assertEquals(5, App.addTwoNumbers(3, 3));
+        assertEquals(5, App.addTwoNumbers(3, 2));
     }
 }

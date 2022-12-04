@@ -10,11 +10,17 @@ import org.junit.Test;
 public class AppTest 
 {
     /**
-     * Rigorous Test :-)
+     * Rigorous Test for Addition :-) 
      */
     @Test
-    public void shouldAnswerWithTrue()
+    public void checkAdditionTest1()
     {
-        assertTrue( true );
+        assertEquals(5, App.addTwoNumbers(2, 3));
+    }
+
+    @Test
+    public void checkAdditionTest2()
+    {
+        assertEquals(5, App.addTwoNumbers(3, 3));
     }
 }

@@ -40,7 +40,7 @@ jobs:
       run: mvn test
   build:
     runs-on: ubuntu-latest
-    name: Run mvn build and generate coverage report
+    name: Coverage
     needs: Test
     steps:
       - uses: actions/checkout@v2
@@ -68,6 +68,7 @@ jobs:
           ./codecov -t ${CODECOV_TOKEN}  
   Package:
     needs: Test
+    name: Deploy/Create Jar
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -84,18 +85,6 @@ jobs:
       with:
        name: Package
        path: artifact  
-#     steps:
-#         - uses: actions/checkout@v3
-#         - uses: actions/setup-java@v3
-#           with:
-#             java-version: '11'
-#             distribution: 'adopt'
-#         - run: mvn --batch-mode --update-snapshots verify
-#         - run: mkdir staging && cp target/*.jar staging
-#         - uses: actions/upload-artifact@v3
-#           with:
-#             name: Package
-#             path: staging
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
